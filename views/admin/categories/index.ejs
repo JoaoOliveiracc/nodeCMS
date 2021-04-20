@@ -3,7 +3,10 @@
 
 <div class="container">
     <hr>
-    <h3>Categorias</h3>
+    <div class="d-flex justify-content-between">
+        <h3>Categorias</h3>
+        <a class="btn btn-primary" href="/admin/categories/new">Adicionar</a>
+    </div>
     <hr>
     <table class="table table-bordered mt-4">
         <thead>
@@ -20,7 +23,10 @@
                     <th><%= category.id %></th>
                     <th><%= category.title %></th>
                     <th><%= category.slug %></th>
-                    <th></th>
+                    <th>
+                        <button class="btn btn-warning">Editar</button>
+                        <button class="btn btn-danger">Deletar</button>
+                    </th>
                 </tr>
             <% }) %>
         </tbody>
