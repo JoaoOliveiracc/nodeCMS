@@ -5,7 +5,9 @@ const Article = require("../articles/Article");
 const slugify = require("slugify");
 
 router.get("/admin/articles", (req, res) => {
-    res.send("Rota de artigos!");
+    Article.findAll().then((articles) => {
+        res.render("admin/articles/index", {articles: articles})
+    });
 });
 
 router.get("/admin/articles/new", (req, res) => {
