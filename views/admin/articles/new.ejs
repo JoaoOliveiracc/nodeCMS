@@ -7,7 +7,7 @@
         <div class="card-body">
             <form method="POST" action="/categories/save">
                 <input class="form-control" type="text" name="title" placeholder="Título do artigo">
-                <textarea class="form-control mt-2" placeholder="Escreva seu artigo..." name="body-article" cols="30" rows="10"></textarea>
+                <textarea class="form-control mt-2" placeholder="Escreva seu artigo..." name="body-article" id="article" cols="30" rows="10"></textarea>
                 <button class="btn btn-success mt-2">Salvar</button>
             </form>
         </div>
@@ -15,3 +15,13 @@
 </div>
 
 <%- include("../../partials/footer.ejs") %>
+
+<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: "#article",
+        plugins: [
+            "advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime midia save table paste emoticons"
+        ]
+    });
+</script>
