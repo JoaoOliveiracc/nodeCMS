@@ -1,0 +1,17 @@
+<%- include("../../partials/header.ejs") %>
+<%- include("../../partials/nav.ejs") %>
+
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header"><h2>Novo artigo</h2></div>
+        <div class="card-body">
+            <form method="POST" action="/categories/save">
+                <input class="form-control" type="text" name="title" placeholder="Título do artigo">
+                <textarea class="form-control mt-2" placeholder="Escreva seu artigo..." name="body-article" cols="30" rows="10"></textarea>
+                <button class="btn btn-success mt-2">Salvar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("../../partials/footer.ejs") %>
