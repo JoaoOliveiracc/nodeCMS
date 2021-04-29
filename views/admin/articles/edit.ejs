@@ -5,7 +5,8 @@
     <div class="card mt-4">
         <div class="card-header"><h2>Edição de artigo</h2></div>
         <div class="card-body">
-            <form method="POST" action="/articles/save">
+            <form method="POST" action="/articles/update">
+                <input type="hidden" name="id" value="<%= article.id %>">
                 <input class="form-control mb-2" type="text" name="title" placeholder="Título do artigo" value="<%= article.title %>">
                 <textarea class="form-control" placeholder="Escreva seu artigo..." name="body" id="article" cols="30" rows="10"><%= article.body %></textarea>
                 <label class="mt-4">Categoria</label>
@@ -15,7 +16,7 @@
                             <option value="<%= category.id %>" selected><%= category.title %></option>
                         <% }else { %>
                             <option value="<%= category.id %>"><%= category.title %></option>
-                        <% } %>
+                        <% } %> 
                     <% }) %>
                 </select>
                 <button class="btn btn-primary mt-2">Salvar</button>
