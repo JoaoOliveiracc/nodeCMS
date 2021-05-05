@@ -102,7 +102,9 @@ router.get("/articles/pag/:num", (req, res) => {
             articles: articles
         };
 
-        res.json(result);
+        Category.findAll().then(categories => {
+            res.render("admin/articles/page", {result: result, categories: categories})
+        });
     });
 });
 
