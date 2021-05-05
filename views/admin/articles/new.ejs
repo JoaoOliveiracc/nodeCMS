@@ -6,15 +6,15 @@
         <div class="card-header"><h2>Novo artigo</h2></div>
         <div class="card-body">
             <form method="POST" action="/articles/save">
-                <input class="form-control" type="text" name="title" placeholder="Título do artigo">
-                <textarea class="form-control mt-2" placeholder="Escreva seu artigo..." name="body" id="article" cols="30" rows="10"></textarea>
+                <input class="form-control mb-2" type="text" name="title" placeholder="Título do artigo">
+                <textarea class="form-control" placeholder="Escreva seu artigo..." name="body" id="article" cols="30" rows="10"></textarea>
                 <label class="mt-4">Categoria</label>
                 <select name="category" class="form-control mt-2">
                     <% categories.forEach((category) => { %>
                         <option value="<%= category.id %>"><%= category.title %></option>
                     <% }) %>
                 </select>
-                <button class="btn btn-success mt-2">Salvar</button>
+                <button class="btn btn-primary mt-2">Salvar</button>
             </form>
         </div>
     </div>

@@ -104,5 +104,23 @@ router.get("/articles/pag/:num", (req, res) => {
 
         res.json(result);
     });
-})
+});
+
+router.post("/articles/update", (req, res) => {
+    var id = req.body.id;
+    var title = req.body.title;
+    var body = req.body.body;
+    var category = req.body.category;
+
+    Article.update({id: id, title: title, body: body, categoryId: category, slug: slugify(title)}, {
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.redirect("/admin/articles");
+    }).catch(erro => {
+        res.redirect("/");
+    });
+});
+
 module.exports = router;
