@@ -16,7 +16,7 @@ router.get("/admin/users/create", (req, res) => {
 router.post("/users/create", (req, res) => {
     var email = req.body.email;
     var password = req.body.password;
-    
+
     User.findOne({where: {email: email}}).then(user => {
         if(user == undefined) {
             var salt = bcrypt.genSaltSync(10);
