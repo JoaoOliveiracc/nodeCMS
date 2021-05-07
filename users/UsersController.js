@@ -16,16 +16,23 @@ router.get("/admin/users/create", (req, res) => {
 router.post("/users/create", (req, res) => {
     var email = req.body.email;
     var password = req.body.password;
-    var salt = bcrypt.genSaltSync(10);
-    var hash = bcrypt.hashSync(password, salt);
+    
+    User.findOne({where: {email: email}}).then(user => {
+        if(user == undefined) {
+            var salt = bcrypt.genSaltSync(10);
+            var hash = bcrypt.hashSync(password, salt);
 
-    User.create({
-        email: email,
-        password: hash
-    }).then(() => {
-        res.json({message: "Cadastrado com sucesso!"});
-    }).catch((erro) => {
-        res.resirect("/");
+            User.create({
+                email: email,
+                password: hash
+            }).then(() => {
+                res.json({message: "Cadastrado com sucesso!"});
+            }).catch((erro) => {
+                res.resirect("/");
+            });
+        }else {
+            res.redirect("/admin/users/create");
+        }
     });
 });
 
